@@ -9,7 +9,7 @@
 * `xhexsa.x`  - source code for 8 bit assembly-compiler
 * `xhexb.x`   - source code for 32 bit compiler (boot-strapping)
 * `xhexba.x`  - source code for 32 bit assembly-compiler (boot-strapping)
-* `xhexb.bin` - a 32 bit compiler in binary
+* `xhexb.bin` - a 32 bit compiler binary (to be run on the 32 bit simulator)
 * `hexsimb.c` - simulator (32 bit) (boot-strapping)
 * `hexsims.c` - simulator (8 bit)
 
