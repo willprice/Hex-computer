@@ -1,7 +1,10 @@
 # README
+## Notes
 `*.x` files are source files in the X language
+
 `*.hex` are the compiled files for the machine
 
+## Files
 * `xhexs.x`   - source code for 8 bit compiler
 * `xhexsa.x`  - source code for 8 bit assembly-compiler
 * `xhexb.x`   - source code for 32 bit compiler (boot-strapping)
@@ -10,7 +13,7 @@
 * `hexsimb.c` - simulator (32 bit) (boot-strapping)
 * `hexsims.c` - simulator (8 bit)
 
-The simulators...
+##The simulators...
 
 * Run the program in `a.bin`
 * Take input from `stdin`
