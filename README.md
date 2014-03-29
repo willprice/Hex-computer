@@ -1,8 +1,8 @@
 # README
 ## Notes
-`*.x` files are source files in the X language
-
-`*.hex` are the compiled files for the machine
+* `*.x` files are source files in the X language
+* `*.hex` are the compiled files for the 8 bit machine
+* `*.bin` are the compiled files for the 32 bit machine
 
 ## Files
 * `xhexs.x`   - source code for 8 bit compiler
