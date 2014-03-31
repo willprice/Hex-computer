@@ -1,0 +1,8 @@
+def compile_x_program(env, target, source):
+    move_input_file_to_sim_input = "mv $SOURCE a.bin"
+    run_simulator = "./" + sim
+    move_sim_output_to_output_file = "mv sim2 $TARGET"
+
+    Builder(action=[move_input_file_to_sim_input,
+                    run_simulator,
+                    move_sim_output_to_output_file]
