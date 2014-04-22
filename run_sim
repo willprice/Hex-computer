@@ -1,0 +1,58 @@
+#!/bin/bash
+
+if [[ $# -ne 4 ]]; then
+  echo "Run: "$0" TARGET INPUT PROGRAM ARCH"
+  exit 1
+fi
+
+##############
+# PARAMETERS #
+##############
+TARGET="${1:-sim_output}"
+PROGRAM="$3"
+ARCH="${4:-8}"
+INPUT="$2"
+
+############################
+# SIM SPECIFIC DEFINITIONS #
+SIM_INPUT_PROGRAM=a.bin
+SIM_OUTPUT=sim2
+############################
+
+select_sim_based_on_arch() {
+  if [[ $ARCH -eq 8 ]]; then
+    SIM=8_bit_sim
+  elif [[ $ARCH -eq 32 ]]; then
+    SIM=32_bit_sim
+  else
+    echo "Not a valid architecture, must be 8 or 32 bit"
+    exit 1
+  fi
+}
+
+
+build_command() {
+  COMMAND="./${SIM}"
+
+  if [[ ${#INPUT} -gt 0 ]]; then
+    COMMAND+=" < ${INPUT}"
+  fi
+}
+
+
+run_sim() {
+  echo "Running simulator"
+  if [[ -f ${PROGRAM} ]]; then
+    cp "${PROGRAM}" "${SIM_INPUT_PROGRAM}"
+  else
+    echo "program: '${PROGRAM}' was not present"
+  fi
+  eval ${COMMAND}
+  if [[ -f ${SIM_OUTPUT} ]]; then
+    mv "${SIM_OUTPUT}"  "${TARGET}"
+  fi
+}
+
+select_sim_based_on_arch
+build_command
+run_sim
